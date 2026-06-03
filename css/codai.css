@@ -1,0 +1,104 @@
+/* ══════════════════════════════════════
+   CODAI.CSS — Trang Cổ Đại
+══════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0a0804;
+    color: #fff;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 72px;
+    background: rgba(5, 3, 1, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.codai-main {
+    padding-top: 72px;
+    min-height: 100vh;
+    background: #0a0804;
+}
+
+/* ── Lưới ── */
+.era-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 52px 60px;
+}
+
+/* ── Link wrapper ── */
+.era-item a {
+    display: block;
+    text-decoration: none;
+    line-height: 0;
+}
+
+/* ══════════════════════════════════════
+   ITEM
+══════════════════════════════════════ */
+.era-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.era-item img {
+    width: 160px;
+    height: 238px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+
+    /* drop-shadow bám theo viền nhân vật (ảnh PNG trong suốt) */
+    filter:
+        drop-shadow(0 0  2px rgba(212, 175, 55, 0.50))
+        drop-shadow(0 0  6px rgba(212, 175, 55, 0.25));
+
+    transition:
+        transform 0.40s ease,
+        filter    0.38s ease;
+}
+
+/* ── Hover: glow vàng đậm hơn, zoom nhẹ ── */
+.era-item:hover img,
+.era-item a:hover img {
+    transform: scale(1.07);
+
+    filter:
+        drop-shadow(0 0  1px rgba(212, 175, 55, 1.00))
+        drop-shadow(0 0  6px rgba(212, 175, 55, 0.85))
+        drop-shadow(0 0 16px rgba(212, 175, 55, 0.55))
+        drop-shadow(0 0 30px rgba(212, 175, 55, 0.25));
+}
+
+/* ── Nhãn ── */
+.era-item__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    color: #ccc;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.era-item:hover .era-item__label {
+    color: #d4af37;
+}
+
+@media (max-width: 768px) {
+    .era-grid { padding: 32px 24px; gap: 28px; }
+    .era-item img { width: 130px; height: 194px; }
+}

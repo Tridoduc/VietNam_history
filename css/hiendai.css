@@ -1,0 +1,147 @@
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold:        #d4af37;
+    --gold-light:  #f0d060;
+    --gold-dim:    #a07c20;
+    --cream:       #f5deb3;
+    --dark:        #0a0804;
+    --dark-mid:    #1a1208;
+    --ancient-red: #8b1e0f;
+    --text-parch:  #f4edd8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--dark);
+    color: var(--text-parch);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.95;
+    overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════
+   NAVBAR (ĐÃ ĐỒNG NHẤT VỊ TRÍ, ĐỊNH DẠNG & FONT)
+══════════════════════════════════════ */
+.navbar {
+    position: fixed;            /* Cố định thanh menu trên cùng khi cuộn trang */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;               /* Chiều cao đồng nhất 75px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;            /* Padding mặc định cho màn hình máy tính */
+    background: rgba(10, 8, 4, 0.92); /* Màu nền tối cinematic đồng bộ với body */
+    backdrop-filter: blur(12px); /* Hiệu ứng mờ kính phía sau */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    z-index: 1000;              /* Đảm bảo navbar luôn nằm trên cùng các lớp khác */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    height: 45px;               /* Tăng nhẹ kích thước icon để cân đối với height 75px */
+    width: auto;  
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', 'Cinzel', serif; /* Đồng nhất font chữ sang trọng */
+    font-size: 15px;            /* Đồng bộ kích cỡ chữ logo */
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--gold);
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.menu {
+    display: flex;
+    gap: 8px;                   /* Khoảng cách vừa phải giữa các mục menu */
+    list-style: none;
+    align-items: center;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    font-family: 'Playfair Display', 'Cinzel', serif; /* Đồng nhất font chữ thanh menu */
+    font-size: 15px;            /* Đồng bộ kích cỡ chữ menu */
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #ccc;
+    padding: 8px 18px;          /* Khoảng cách đệm tạo vùng bấm dễ dàng */
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.menu li a:hover,
+.menu li.active a {
+    color: var(--gold);
+}
+
+/* Đường gạch chân khi active - căn chỉnh lại cho khớp với chiều cao navbar mới */
+.menu li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;              /* Đẩy khoảng cách lên vừa vặn với chiều cao 75px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: var(--gold);
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;        /* Thu hẹp khoảng cách viền trên điện thoại */
+        height: 65px;           /* Giảm chiều cao navbar trên màn hình nhỏ */
+    }
+
+    .logo-icon {
+        height: 38px;           /* Thu nhỏ icon lại một chút */
+    }
+
+    .logo-text {
+        font-size: 13px;        /* Giảm size chữ logo tránh tràn màn hình */
+        letter-spacing: 2px;
+    }
+
+    /* Mẹo nhỏ: Trên điện thoại di động, nếu menu quá dài sẽ bị tràn ngang. 
+       Bạn nên bổ sung thuộc tính ẩn menu hoặc chuyển thành menu dọc, 
+       tạm thời đoạn mã dưới đây giúp menu tự thu nhỏ lại để vừa màn hình:
+    */
+    .menu li a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+    
+    .menu li.active a::after {
+        bottom: -12px;          /* Cân đối lại đường gạch chân trên mobile */
+    }
+}

@@ -1,0 +1,48 @@
+/* Container chứa các nút */
+.lab-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.section-title {
+    color: #dbb04a;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Lưới hiển thị 8 nút */
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+/* Style cho từng nút */
+.lab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(26, 15, 13, 0.8);
+    color: #f4edd8;
+    text-decoration: none;
+    border: 1px solid #dbb04a; /* Viền vàng cổ điển */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Hiệu ứng khi di chuột vào */
+.lab-button:hover {
+    background: #8b1e0f; /* Chuyển sang màu đỏ son */
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(219, 176, 74, 0.3);
+}
