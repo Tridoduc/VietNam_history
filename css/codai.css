@@ -11,17 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-.navbar {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 72px;
-    background: rgba(5, 3, 1, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-
 .codai-main {
     padding-top: 72px;
     min-height: 100vh;
